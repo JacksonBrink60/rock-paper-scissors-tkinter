@@ -1,5 +1,6 @@
 from tkinter import *
 import random
+import torn as to
 wins = 0
 losses = 0
 ties = 0
@@ -7,6 +8,18 @@ window = Tk()
 window.geometry("400x400")
 window.grid_columnconfigure(0, weight=1)
 window.title("Rock, Paper, Scissors")
+menubar = Menu(window)
+window.config(menu=menubar)
+
+
+def tornment():
+    new_win = Toplevel()
+    win = to.torn(new_win)
+
+
+filemenu = Menu(menubar, tearoff=0)
+menubar.add_cascade(label="Options", menu=filemenu)
+filemenu.add_command(label="Tournament Mode", command=tornment)
 
 
 def reset():
